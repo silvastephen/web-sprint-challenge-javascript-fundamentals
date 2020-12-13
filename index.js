@@ -28,19 +28,13 @@ myFunction();
     
 For example, `summation(4)` should return 10 because 1+2+3+4 is 10. Note, you may use a for loop for this function if you wish */
 
-function summation(/*Your Code Here*/) {
-  /*Your Code Here*/
-
+function summation(num) {
+  let counter = 0
+  for(let i = 0; i < num + 1; i++){
+    counter = counter + i;
   }
-  function summation() 
-  {var sum = 0;
-    for(var i = 1; i <= number; i++){
-      sum += i;
-    }
-    return sum;
-  }
-  console.log(summation(4));
- 
+  return counter;
+  };
 
 // 🦁🦁🦁 Topic 2: ADVANCED Array Methods 🦁🦁🦁
 // Given this zoo data from around the United States, follow the instructions below. Use the specific array methods in the requests below to solve the problems.
@@ -63,10 +57,6 @@ const zooAnimals = [
   Use animalNames to populate and return the displayNames array with only the animal name and scientific name of each animal. 
   displayNames will be an array of strings, and each string should follow this pattern: "name: {name}, scientific: {scientific name}"
   */
-
-  function animalNames(/*Your Code Here*/){
-    /*Your Code Here*/
-  }
   
   function animalNames(  
     {const displayNames = [];
@@ -98,6 +88,14 @@ const zooAnimals = [
   function lowPopulationAnimals(/*Your Code Here*/){
     /*Your Code Here*/
   }
+  function lowPopulationAnimals(arr){
+    const low = arr.filter(function(item){
+      return item.population < 5;
+    })
+    return low
+}
+
+lowPopulationAnimals(zooAnimals)
   
 
   /* 🦁🦁🦁 Request 4: .reduce() 🦁🦁🦁
@@ -109,7 +107,13 @@ const zooAnimals = [
   function USApop(/*Your Code Here*/){
     /*Your Code Here*/
   }
-  
+  function USApop(arr){
+    const reduce = arr.reduce(function(accumulator, item){
+      return accumulator + item.population;
+    },0)
+    return reduce;
+  }
+  USApop(zooAnimals);
   
   // 🦁🦁🦁 Callbacks 🦁🦁🦁  
   /* 🦁🦁🦁 Step 1: Create a higher-order function 🦁🦁🦁
@@ -122,32 +126,33 @@ const zooAnimals = [
   function consume(/*Your Code Here */){
     /*Your Code Here */
   }
+  function consume(a, b, cb){
+    return cb(a, b);
+  }
  
   
   /* 🦁🦁🦁 Step 2: Create several functions to callback with consume(); 🦁🦁🦁 */
  // 🦁🦁🦁 Use add to return the sum of two numbers 🦁🦁🦁
   
-function add(/*Your Code Here */){
-    /*Your Code Here*/
-  }
+ function add(a, b){
+  return (a + b)
 
 // 🦁🦁🦁 Use multiply to return the product of two numbers 🦁🦁🦁
   
-function multiply(/*Your Code Here */){
-   /*Your Code Here */
-  }
+function multiply(a, b){
+  return (a * b)
 
  // 🦁🦁🦁 Use greeting to accept a first and last name and return "Hello {first-name} {last-name}, nice to meet you!" 🦁🦁🦁
   
-function greeting(/*Your Code Here */){
-   return /*Your Code Here */
-  }
+ function greeting(a, b){
+  return (`Hello ${a} ${b}, nice to meet you!`)
+ }
   
   // 🦁🦁🦁 Step 3: Check your work by un-commenting the following calls to consume(): 🦁🦁🦁 
   // ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️
-  // console.log(consume(2, 2, add)); // 4
-  // console.log(consume(10, 16, multiply)); // 160
-  // console.log(consume("Mary", "Poppins", greeting)); // Hello Mary Poppins, nice to meet you!
+  console.log(consume(2, 2, add)); // 4
+  console.log(consume(10, 16, multiply)); // 160
+  console.log(consume("Mary", "Poppins", greeting)); // Hello Mary Poppins, nice to meet you!
   
   
 // 🦁💪 Stretch: If you haven't already, convert your array method callbacks into arrow functions - make sure you comment out this section before you submit your work 🦁💪
