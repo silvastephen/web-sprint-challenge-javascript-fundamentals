@@ -17,7 +17,7 @@ myFunction();
 
 //🚀🚀🚀 ⬇️ 📝 Explanation ⬇️ 📝 🚀🚀🚀: 
 
-
+//Because it is located within the function's scope, and does not have to be accessed outside of the function.//
 
 
 
@@ -32,6 +32,14 @@ function summation(/*Your Code Here*/) {
   /*Your Code Here*/
 
   }
+  function summation() 
+  {var sum = 0;
+    for(var i = 1; i <= number; i++){
+      sum += i;
+    }
+    return sum;
+  }
+  console.log(summation(4));
  
 
 // 🦁🦁🦁 Topic 2: ADVANCED Array Methods 🦁🦁🦁
@@ -60,6 +68,12 @@ const zooAnimals = [
     /*Your Code Here*/
   }
   
+  function animalNames(  
+    {const displayNames = [];
+    zooAnimals.forEach((animal) =>{
+      displayNames.push(`Name: ${animal.animal_name}, Scientific: ${animal.scientific_name}`)
+    });
+    {console.log(displayNames);}
 
   /* 🦁🦁🦁 Request 2: .map() 🦁🦁🦁
   The zoo needs a list of all their animal's names converted to lower case. 
@@ -71,6 +85,10 @@ const zooAnimals = [
     /*Your Code Here*/
   }
   
+  function lowerCaseNames()
+  {const lowCaseAnimalNames = zooAnimals.map((animal) =>
+    animal.animal_name.toLowerCase());
+    console.log(lowCaseAnimalNames);
   
   /* 🦁🦁🦁 Request 3: .filter() 🦁🦁🦁
   The zoo is concerned about animals with a lower population count. 
